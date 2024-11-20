@@ -36,6 +36,8 @@ public:
 	operator int();
 	// ѕеревод обыкновенной дроби в дес€тичную (с точностью 3 знака после зап€той)
 	operator double();
+	//¬ывод дроби с выделением целой части 
+	int wholePart(int a, int b);
 private:
 	int numerator;
 	int denominator;

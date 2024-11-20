@@ -1,4 +1,4 @@
-#include "iostream"
+#include <iostream>
 #include "fraction.h"
 
 using namespace std;
@@ -201,6 +201,13 @@ Fraction::operator double()
 {
 	double temp = double(numerator / denominator);
 	return temp;
+}
+
+int Fraction::wholePart(int a, int b)
+{
+	if (a > b) {
+		cout << (a / b) << "(" << (a % b) << "/" << b << ")" << endl;
+	}
 }
 
 int Fraction::euklid(int a, int b)
