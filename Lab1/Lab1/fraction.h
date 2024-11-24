@@ -37,7 +37,6 @@ public:
 	// Перевод обыкновенной дроби в десятичную (с точностью 3 знака после запятой)
 	operator double();
 	//Вывод дроби с выделением целой части 
-	int wholePart(int a, int b);
 private:
 	int numerator;
 	int denominator;

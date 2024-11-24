@@ -203,13 +203,6 @@ Fraction::operator double()
 	return temp;
 }
 
-int Fraction::wholePart(int a, int b)
-{
-	if (a > b) {
-		cout << (a / b) << "(" << (a % b) << "/" << b << ")" << endl;
-	}
-}
-
 int Fraction::euklid(int a, int b)
 {
 	while (a != b) {
