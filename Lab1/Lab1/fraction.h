@@ -6,7 +6,7 @@ public:
 	// Конструкторы (1 по умолчанию, 2 с параметрами)
 	Fraction();
 	Fraction(int a, int b);
-	Fraction(double a, int rounding = 3);
+	Fraction(double a, int precision = 3);
 	// Установление / Получение числителя / Знаменателя дроби
 	bool setValue(int a, int b);
 	void setNumerator(int a);
@@ -19,7 +19,7 @@ public:
 	void inputDouble();
 	void output() const;
 	// Приведение дроби к несократимой 
-	void reduction();
+	void reduce();
 	// Арифметические действия
 	Fraction operator-(Fraction r) const;
 	Fraction operator+(Fraction r) const;

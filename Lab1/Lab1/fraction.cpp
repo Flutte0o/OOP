@@ -17,16 +17,16 @@ Fraction::Fraction(int a, int b) : numerator(0), denominator(1)
 		cerr << "Denominator can't be 0" << endl;
 }
 
-Fraction::Fraction(double a, int rounding)
+Fraction::Fraction(double a, int precision)
 {
-	if (rounding < 0) {
+	if (precision < 0) {
 		cerr << "Precision may not be < 0";
-		rounding = 1;
+		precision = 1;
 	}
 
-	denominator = pow(10, rounding);
+	denominator = pow(10, precision);
 	numerator = a * denominator;
-	this->reduction();
+	reduce();
 }
 
 bool Fraction::setValue(int a, int b)
@@ -94,7 +94,7 @@ void Fraction::output() const
 	cout << numerator << "/" << denominator << endl;
 }
 
-void Fraction::reduction()
+void Fraction::reduce()
 {
 	Fraction temp_f;
 	int n = euklid(numerator, denominator);
@@ -102,40 +102,40 @@ void Fraction::reduction()
 	denominator /= n;
 }
 
-Fraction Fraction::operator-(Fraction r) const
+Fraction Fraction::operator-(Fraction other) const
 {
 	Fraction temp_f;
-	temp_f.setValue(this->numerator * r.denominator - r.numerator * this->denominator, this->denominator * r.denominator);
+	temp_f.setValue(this->numerator * other.denominator - other.numerator * this->denominator, this->denominator * other.denominator);
 	return temp_f;
 }
 
-Fraction Fraction::operator+(Fraction r) const
+Fraction Fraction::operator+(Fraction other) const
 {
 	Fraction temp_f;
-	temp_f.setValue(this->numerator * r.denominator + r.numerator * this->denominator, this->denominator * r.denominator);
+	temp_f.setValue(this->numerator * other.denominator + other.numerator * this->denominator, this->denominator * other.denominator);
 	return temp_f;
 }
 
-Fraction Fraction::operator*(Fraction r) const
+Fraction Fraction::operator*(Fraction other) const
 {
 	Fraction temp_f;
-	temp_f.setValue(this->numerator * r.numerator, this->denominator * r.denominator);
+	temp_f.setValue(this->numerator * other.numerator, this->denominator * other.denominator);
 	return temp_f;
 
 }
 
-Fraction Fraction::operator/(Fraction r) const
+Fraction Fraction::operator/(Fraction other) const
 {
 	Fraction temp_f;
-	temp_f.setValue(this->numerator * r.denominator, this->denominator * r.numerator);
+	temp_f.setValue(this->numerator * other.denominator, this->denominator * other.numerator);
 	return temp_f;
 }
 
-bool Fraction::operator==(Fraction r) const
+bool Fraction::operator==(Fraction other) const
 {
 	int a, b;
-	a = this->numerator * r.denominator;
-	b = r.numerator * this->denominator;
+	a = this->numerator * other.denominator;
+	b = other.numerator * this->denominator;
 	if (a == b) {
 		return true;
 	}
@@ -144,11 +144,11 @@ bool Fraction::operator==(Fraction r) const
 	}
 }
 
-bool Fraction::operator!=(Fraction r) const
+bool Fraction::operator!=(Fraction other) const
 {
 	int a, b;
-	a = this->numerator * r.denominator;
-	b = r.numerator * this->denominator;
+	a = this->numerator * other.denominator;
+	b = other.numerator * this->denominator;
 	if (a != b) {
 		return true;
 	}
@@ -157,11 +157,11 @@ bool Fraction::operator!=(Fraction r) const
 	}
 }
 
-bool Fraction::operator>(Fraction r) const
+bool Fraction::operator>(Fraction other) const
 {
 	int a, b;
-	a = this->numerator * r.denominator;
-	b = r.numerator * this->denominator;
+	a = this->numerator * other.denominator;
+	b = other.numerator * this->denominator;
 	if (a > b) {
 		return true;
 	}
@@ -170,11 +170,11 @@ bool Fraction::operator>(Fraction r) const
 	}
 }
 
-bool Fraction::operator<(Fraction r) const
+bool Fraction::operator<(Fraction other) const
 {
 	int a, b;
-	a = this->numerator * r.denominator;
-	b = r.numerator * this->denominator;
+	a = this->numerator * other.denominator;
+	b = other.numerator * this->denominator;
 	if (a < b) {
 		return true;
 	}
@@ -185,10 +185,10 @@ bool Fraction::operator<(Fraction r) const
 
 void Fraction::fromDouble(double a)
 {
-	a *= 100;
+	a *= 1000;
 	numerator = int(a);
 	denominator = 100;
-	this->reduction();
+	this->reduce();
 }
 
 Fraction::operator int()
