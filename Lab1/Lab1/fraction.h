@@ -1,46 +1,46 @@
-#include <iostream>
+ï»¿#include <iostream>
 
 
 class Fraction {
 public: 
-	// Êîíñòðóêòîðû (1 ïî óìîë÷àíèþ, 2 ñ ïàðàìåòðàìè)
+	// ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€Ñ‹ (1 Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ, 2 Ñ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð°Ð¼Ð¸)
 	Fraction();
 	Fraction(int a, int b);
 	Fraction(double a, int precision = 3);
-	// Óñòàíîâëåíèå / Ïîëó÷åíèå ÷èñëèòåëÿ / Çíàìåíàòåëÿ äðîáè
+	// Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ / ÐŸÐ¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ Ñ‡Ð¸ÑÐ»Ð¸Ñ‚ÐµÐ»Ñ / Ð—Ð½Ð°Ð¼ÐµÐ½Ð°Ñ‚ÐµÐ»Ñ Ð´Ñ€Ð¾Ð±Ð¸
 	bool setValue(int a, int b);
 	void setNumerator(int a);
 	bool setDenominator(int a);
 	void getValue(int& a, int& b) const;
 	void getNumerator(int& a) const;
 	void getDenominator(int& a) const ;
-	// Ââîä / Âûâîä äðîáè
+	// Ð’Ð²Ð¾Ð´ / Ð’Ñ‹Ð²Ð¾Ð´ Ð´Ñ€Ð¾Ð±Ð¸
 	void input();
 	void inputDouble();
 	void output() const;
-	// Ïðèâåäåíèå äðîáè ê íåñîêðàòèìîé 
+	// ÐŸÑ€Ð¸Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð´Ñ€Ð¾Ð±Ð¸ Ðº Ð½ÐµÑÐ¾ÐºÑ€Ð°Ñ‚Ð¸Ð¼Ð¾Ð¹ 
 	void reduce();
-	// Àðèôìåòè÷åñêèå äåéñòâèÿ
+	// ÐÑ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ
 	Fraction operator-(Fraction r) const;
 	Fraction operator+(Fraction r) const;
 	Fraction operator*(Fraction r) const;
 	Fraction operator/(Fraction r) const;
-	// Îïåðàòîðû ñðàâíåíèÿ 
+	// ÐžÐ¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ñ‹ ÑÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ñ 
 	bool operator==(Fraction r) const;
 	bool operator!=(Fraction r) const;
 	bool operator>(Fraction r) const;
 	bool operator<(Fraction r) const;
-	// Ïåðåâîä äðîáè èç äåñÿòè÷íîé â îáûêíîâåííóþ
+	// ÐŸÐµÑ€ÐµÐ²Ð¾Ð´ Ð´Ñ€Ð¾Ð±Ð¸ Ð¸Ð· Ð´ÐµÑÑÑ‚Ð¸Ñ‡Ð½Ð¾Ð¹ Ð² Ð¾Ð±Ñ‹ÐºÐ½Ð¾Ð²ÐµÐ½Ð½ÑƒÑŽ
 	void fromDouble(double a);
-	// Ïåðåâîä îáûêíîâåííîé äðîáè â öåëîå ÷èñëî
+	// ÐŸÐµÑ€ÐµÐ²Ð¾Ð´ Ð¾Ð±Ñ‹ÐºÐ½Ð¾Ð²ÐµÐ½Ð½Ð¾Ð¹ Ð´Ñ€Ð¾Ð±Ð¸ Ð² Ñ†ÐµÐ»Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾
 	operator int();
-	// Ïåðåâîä îáûêíîâåííîé äðîáè â äåñÿòè÷íóþ (ñ òî÷íîñòüþ 3 çíàêà ïîñëå çàïÿòîé)
+	// ÐŸÐµÑ€ÐµÐ²Ð¾Ð´ Ð¾Ð±Ñ‹ÐºÐ½Ð¾Ð²ÐµÐ½Ð½Ð¾Ð¹ Ð´Ñ€Ð¾Ð±Ð¸ Ð² Ð´ÐµÑÑÑ‚Ð¸Ñ‡Ð½ÑƒÑŽ (Ñ Ñ‚Ð¾Ñ‡Ð½Ð¾ÑÑ‚ÑŒÑŽ 3 Ð·Ð½Ð°ÐºÐ° Ð¿Ð¾ÑÐ»Ðµ Ð·Ð°Ð¿ÑÑ‚Ð¾Ð¹)
 	operator double();
-	//Âûâîä äðîáè ñ âûäåëåíèåì öåëîé ÷àñòè 
+	//Ð’Ñ‹Ð²Ð¾Ð´ Ð´Ñ€Ð¾Ð±Ð¸ Ñ Ð²Ñ‹Ð´ÐµÐ»ÐµÐ½Ð¸ÐµÐ¼ Ñ†ÐµÐ»Ð¾Ð¹ Ñ‡Ð°ÑÑ‚Ð¸ 
 	int wholePart(int a, int b);
 private:
 	int numerator;
 	int denominator;
-	// Åâêëèäîâ àëãîðèòì (Äëÿ ïîèñêà ÍÎÄ)
+	// Ð•Ð²ÐºÐ»Ð¸Ð´Ð¾Ð² Ð°Ð»Ð³Ð¾Ñ€Ð¸Ñ‚Ð¼ (Ð”Ð»Ñ Ð¿Ð¾Ð¸ÑÐºÐ° ÐÐžÐ”)
 	int euklid(int a, int b);
 };
