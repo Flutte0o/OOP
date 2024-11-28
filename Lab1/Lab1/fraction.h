@@ -20,26 +20,25 @@ public:
 	void output() const;
 	// Приведение дроби к несократимой 
 	void reduce();
-	// Арифметические действия
+	// Арифметические действия (Перегрузки)
 	Fraction operator-(Fraction r) const;
 	Fraction operator+(Fraction r) const;
 	Fraction operator*(Fraction r) const;
 	Fraction operator/(Fraction r) const;
-	// Операторы сравнения 
+	// Операторы сравнения  (Перегрузки)
 	bool operator==(Fraction r) const;
 	bool operator!=(Fraction r) const;
 	bool operator>(Fraction r) const;
 	bool operator<(Fraction r) const;
-	// Перевод дроби из десятичной в обыкновенную
+	// Перевод дроби из десятичной в обыкновенную (С точностью до 3-х знаков после запятой)
 	void fromDouble(double a);
-	// Перевод обыкновенной дроби в целое число
+	// Выделение целой части
 	operator int();
-	// Перевод обыкновенной дроби в десятичную (с точностью 3 знака после запятой)
+	// Перевод обыкновенной дроби в десятичную 
 	operator double();
-	//Вывод дроби с выделением целой части 
 private:
 	int numerator;
 	int denominator;
-	// Евклидов алгоритм (Для поиска НОД)
+	// Алгоритм Евклида (Для поиска НОД)
 	int euklid(int a, int b);
 };

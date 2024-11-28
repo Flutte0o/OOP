@@ -188,7 +188,7 @@ void Fraction::fromDouble(double a)
 	a *= 1000;
 	numerator = int(a);
 	denominator = 100;
-	this->reduce();
+	reduce();
 }
 
 Fraction::operator int()
